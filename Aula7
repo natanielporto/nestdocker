@@ -1,0 +1,9 @@
+nest g resource
+(gera toda a aplicação pra ti (código exemplo)
+
+node-rsa
+
+md5 unidirecional - criptografa mas eu não decifro
+rsa bidirecional - criptografa e decifra
+
+
