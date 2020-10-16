@@ -8,15 +8,35 @@ type User {
   email: String!
 }
 
+type Clients {
+  id: String!
+  name: String!
+  email: String!
+  phone: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   users: [User!]!
   user(id: String!): User!
+  clients: [Clients!]!
+  client(id: String!): Clients!
 }
 
 type Mutation {
   createUser(data: CreateUserInput!): User!
   updateUser(data: UpdateUserInput!, id: String!): User!
   deleteUser(id: String!): Boolean!
+  createClients(data: CreateClientsInput!): Clients!
+  updateClients(data: UpdateClientsInput!, id: String!): Clients!
+  deleteClients(id: String!): Boolean!
 }
 
 input CreateUserInput {
@@ -27,4 +47,16 @@ input CreateUserInput {
 input UpdateUserInput {
   name: String
   email: String
+}
+
+input CreateClientsInput {
+  name: String!
+  email: String!
+  phone: String!
+}
+
+input UpdateClientsInput {
+  name: String
+  email: String
+  phone: String
 }
