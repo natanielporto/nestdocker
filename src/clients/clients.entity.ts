@@ -1,14 +1,11 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { ObjectType } from '@nestjs/graphql';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
 } from 'typeorm';
-// import { v4 as uuidv4 } from 'uuid';
-// import NodeRSA from 'node-rsa';
-
-// const key = new NodeRSA({ b: 512 });
+import { MyCrypto } from 'src/helpers/crypto';
 
 @ObjectType()
 @Entity()
@@ -16,13 +13,25 @@ export class Clients {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    transformer: MyCrypto,
+  })
   name: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    transformer: MyCrypto,
+  })
   email: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    nullable: false,
+    transformer: MyCrypto,
+  })
   phone: string;
 
   @CreateDateColumn({ type: 'timestamp' })
