@@ -1,11 +1,9 @@
 import { EncryptionTransformer } from 'typeorm-encrypted';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 export const MyCrypto = new EncryptionTransformer({
   key: `${process.env.DB_KEY}`,
   algorithm: 'aes-256-cbc',
   ivLength: 16,
-  iv: `${process.env.DB_IV}`,
+  iv: 'ff5ac19190424b1d88f9419ef949ae00',
+  // iv: `${process.env.DB_IV}`,
 });

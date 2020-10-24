@@ -14,22 +14,16 @@ export class Clients {
   id: string;
 
   @Column({
-    type: 'varchar',
-    nullable: false,
     transformer: MyCrypto,
   })
   name: string;
 
   @Column({
-    type: 'varchar',
-    nullable: false,
     transformer: MyCrypto,
   })
   email: string;
 
   @Column({
-    type: 'varchar',
-    nullable: false,
     transformer: MyCrypto,
   })
   phone: string;
